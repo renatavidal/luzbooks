@@ -1,0 +1,55 @@
+<a href="#" class="btn btn-primary"> boton </a>
+<!-- container ocupa 80 per cent pero container-fluid es todo el ancho -->
+<!-- row debe ser hijo directo de un contenedor, pueden haber varias row en un contenedor -->
+<!-- columnas deben ser hijos directo de la fila, los contenidos deben ser en la columna, no la fila. MAX 12 COLUMNAS EN UNA FILA-->
+<!-- EL NUMERO DESPUES DE COL- es cuantas columnas de las 12 disponibles va a ocupar esas columnas. si hacemos mas de 12 va a seguir abajo-->
+<!-- las columnas se van a adaptar al tama;o del contenido si usamos solo class="col" sin el numerito -->
+<!-- hay col-sm-num col-md-num col-lg-num y col-xl-num se usan todos juntos con el col-num y asi se ajusta segun el dispositivo -->
+<!-- puedo usar offset-num para decir cuantas columnas quiero separar esa columna que estoy, tambien puedo hacecr offset-sm-num y asi con md, lg y xl -->
+<!-- se puede poner order-xx-first que xx es sm,lg,xl o sin eso y dice que ponga esa col primero visualmente, same con order-last. sino order-num y las va a ordenar de menor a mayor por numero -->
+<!-- class="display-num" es para hacer titulos mas grandes -->
+<!-- class="text-center (right or left) es para centrar el texto sin crear clases, podes hacer text-sm-right por ej y con lg,xl tambien" -->
+<!-- text-capitalize lo que hace es poner en mayusculas la primera letra de cada palabra, util para nombres -->
+<!-- padding adentro margin afuera, hablando de margenes -->
+<!-- tenemos para m y p l,r,t,b (left right top bottom), y ademas x e y x es right y left y y es top y bottom. tambien se puede hacer mx-sm-1 y asi. hay del 1 al 5 en tama;os-->
+<!-- .clase$*num y tab lo que hace es crear num clases, si pongo .item$*8 me crea 8 div class="item1 2 3 4 5 y 6" -->
+<!-- d-flex es para asignar clase de flexbox, tambien d-block y obvio el sm,lg,xl en el medio -->
+<!-- flex-column es para que los hijos se muestren uno abajo del otro. tambien flex-row y con sm lg xl -->
+<!--  https://hackerthemes.com/bootstrap-cheatsheet/  TODOS LOS COMANDOS BOOTSTRAP ESTAN ACAAAAAAAAAAAAA-->
+<!-- Con flexbox desde css podes hacer .nombre{ justify-content:space-around; y ahi se separan entre si, hay un monton de formas } -->
+<!-- para hacer eso en bootstrap hago justifu-content- strart, center, end, between, around. osea class="nombre d-flex justify-content-start" responsive con justify-content-sm-center-->
+<!-- para eje secundario osea vericar tenemos align-item-start, end, center y stretch -->
+<!-- tenemos align-self-center, start, end y  stretch. eso es para cada div dentro del section del flex. y tambien es responsive align-self-md-stretch-->
+<!-- flex-fill es para cada hijo, ahi ocupan todo el espacio disponible y tengan un espaio identico, respetando el juntify-content y align-items del flex -->
+<!-- para ordenar puedo hacer order-num y se va a ordenar por numero (cada item, osea hijo) -->
+<!-- border: ; en css pero en bootstrap hago border-num o border-left y border-primary (son esos 6 colores que tiene el bootstrap, secondary, danger, warning,y asi. tmabien dark, white) -->
+<!-- bordes redondeados haces rounded, osea border-o que sea espacio y rounded. x ejborder-white rounded. rouded-right left y eso -->
+<!-- SOMBRAS: shadow-sm ,solo,lg  -->
+<!-- img fluid es para qu ela imagen vaya ajustandose al tama;o del conenedor que le dimos -->
+<!-- CLASES DISPLAY d-none(oculta un elemento), block (hace elemento en bloque), inline (en linea) inline-block, flex, inline-flex -->
+<!-- si quiero que en el chico no este pero en el grande si hago d-none d-md-block por ejemplo o la caracteristica que queiras -->
+<!-- d-none, d-block , d-inline, d-inline-block, d-flex, d-inline-flex SON RESPONSIVE-->
+<!-- CONTENIDO EMBEBIDO RESPONSIVE div class="embed-resposive embed-responsive1by1" eso es cuadrador, tambien puede ser embed-responsibe-16by9, y el contenido por ejemplo si es iframe hago class="embed-responsive-item"-->
+<!-- para botones que envian a enlace es con etiqueta a , sino es para button e input -->
+<!-- outline button hacemos btn-outline-primary y asi con todos los coores. osea class=" btn btn-outline-primary" -->
+<!-- tamanio de botones hacemos ademas btn-lg o btn-sm, o btn-bock que hace que ocupe todo el ancho del bloque -->
+<!-- COLLAPSE elemento disparador osea boton y elemento destino, lo que se muestra atributo data-toggle="collapse" data-taarget="#id" osea el id para quien va a mostrar aria-expanded="false", false estasin mostrar hasta que se toca el boton, si es true la vistima se muestra y se oculta cuando se toca el boton
+para hacer lo que se va a mostrar tenemos que poner class="collapse" id="el id que usamos en el button"-->
+<!-- puedo hacer otro boton abajo con el aria expanded en ture para que cuando lo apriete cierre todo eso
+ -->
+ <!-- aria-controls="id" para personas invidentes -->
+ <!-- NAVBAR  class="navbar etiqueta nav <nav class="navbar"> -->
+   <!-- si elmenu es oscuro  ponemos navbar-dark para que las letras sean claras style="bckgound:colour" o en class bg-primary o cualquiera de esos colores, para poner color, si es claro ponemos navbar-light, para poner logo hago class="navbar-brand" -->
+   <!-- para que el menu no quede a los lados lo que hago es div class="container" abajo del nav principal antes de poner las cosas -->
+   <!-- para cambiar el tama;o de texto dentro del navbar hago <span class='h1'> o cualquier h del 1 al 6, eso dentro de los <a> de cada cosito, sino si es una imagen meto dentro de a la etiqueta img -->
+<!-- NAVBAR MOVIL etiqueta button y le digo tyoe button class="navbar-toggler" data-toggle="collapse" data-target="#menu-principal (el id)" aria-controls="menu-principal (osea el id)" aria-expanded="false"  aria-label="desplegar menu de navegacion" 9ese ultimo es por accesibilidad de no videntes como el  aria controls creo, abajo hago  <span class="navbar-toggler-icon"></span>
+lo de adentro va afuera del <button> hagodiv con class collapse navbar-collapse y los id correspondiente, en este caso menu-principal, abajo hago enlances con <ul class="navbar-nav"> <li class="nav-item, adentro de cada li hago un a con class="nav-link". si algun a le ponemos class active ademas de nv link lo pone en blanco mas fuerte como de seleccionado
+-->
+<!-- PARA QUE EN PANTALLAS GRANDES EL MANU APAREZCA DESPLEGADO HORIZONTALMENTE
+hago en  el nav dentro de las clases un navbar-expand-contexto , esos contectos son sm,md,lg y xl, osea el tama;o de la pantalla si ponemos por ejemplo md significa que de md en adelante se va a expandir.-->
+<!-- ALINEAR LOS BOTONCITOS EXPANDIDOS al ul le agrego ml-auto -->
+
+  <!-- target hace que vayas a ese link pero en otra pesta;a, se puede usar download tambien pero solo con rutas relativas, osea lo que esta en nuestro servidor, no con relatiavas-->
+      <!-- para que haga eso que cuando apretas te manda a la parte de la pagina que tiene eso, tipo misma pesta;a lo que hay que hacer es ponerle un id a ese lugar que queremos y despues usar el a href="#id" esto es a traves de anclas se dice-->
+      <!-- se puede navegar con ancas desde otra pesta;a, hacemos a href="/plinplin/pilinplin.html#id" -->
+      <!-- datalist es lista desplegable pero que podes ademas tipear y filtrar desde ahi es con datalist id='' y cada cosito es option value-'' -->
