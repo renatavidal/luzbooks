@@ -4,6 +4,10 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/47f5532d2c.js" crossorigin="anonymous"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <!-- Bootstrap CSS -->
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="css/estilos.css">
@@ -55,6 +59,9 @@
           </div>
         </div>
       </nav>
+
+
+
       <!-- info -->
       <section class="py-5 my-5">
         <div class="row mx-5 px-5">
@@ -62,34 +69,82 @@
             <img src="/assets/images/fotoluz.jpg" alt="escritora" width="300px" class="img-fluid my-4 rounded-circle">
           </div>
           <div class="col-12 col-md-6 text-center text-md-left align-self-md-center py-3  ">
-            <h1 class="titulo"> MARIA NIEVES </h1>
-            <p class="textocomun">
-              Soy la que sonríe cuando ve a los amigos llegar. La que lee libros de amor propio para después encapricharse con personalidades unidimensionales. Tengo un poco de eso que se llama «complejo de salvadora», y tal vez por esa razón hice una web donde escribo reflexiones para consolarme a mí y a los demás.
-            </p>
-          </div>
-        </div>
-        <div class="row info-luz">
-          <div class="col-12  mx-5 px-5 my-3 py-2">
-            <p class="textocomun">
-              Vivo en una dualidad. Como cuando pongo música de lluvia de fondo mientras afuera está soleado; o cuando extraño el sol después de varios días de nubes blancas. <br>
-
-              🌙 No me puedo definir con una sola cosa. Tengo tantos gustos como colores hay. En todo ese caos que se llama «ser», me encuentro con la lectura. Cuando quiero mucho a alguien, le recomiendo un libro. Cuando lo amo, se lo presto. <br>
-
-              ✨ De chica me encantaba tocar el piano. Después, probé con el dibujo. Crucé todas las artes hasta que me decidí por la escritura, el único hobby que hago desde los 13 años sin cansarme.<br>
-
-              📝 Amo escribir como quien ama la lluvia después de muchos días de calor.<br>
-
-              🦋 Estudio Literatura y tengo varios libros escritos. Más me gusta cuando puedo transformar a alguien con lo que digo: llegarle al alma al lector.<br>
-
-              📚 Creo que hice un buen resumen (si se le puede llamar resumen). No es un CV, ni un poema: es un poco de los dos.<br>
+            <h1 class="titulo"> LUZ SALTALAMACCHIA </h1>
+            <p class="textocomun h5">
+              ¡Hola! Mi nombre es Luz y mi apellido es terriblemente largo. Vivo en Moreno, Buenos Aires, y actualmente estudio Licenciatura en Artes de la Escritura (sí, una carrera para ser escritor). Me encanta la cultura asiática, en especial la coreana, y todo lo que tenga que ver con los animales y cómo cuidarlos. Por eso llevo una alimentación basada en plantas y las notificaciones de <i>Korea Dispatch </i> activadas en mi celular. 
             </p>
           </div>
         </div>
       </section>
+        <!-- instrucciones -->
+      <div class="container d-flex my-2 py-2 mx-5">
+        <inline class="h3 textocomun " style="position: left:0;">
+          Si tuviera que describirme con cinco frases que uso todos los días 
+        </inline>
+        <i class="h4 textocomun px-2" style="position:right:0;">  (click si te sentis identificado) </i> 
+      </div>
+            <!-- checkbox -->
+      <section class="info-luz mx-5 px-5 mt-0 py-2">
+        <div class="row py-2 textocomun border-bottom" > 
+          <div class="col-sm-11 col-md-10 mt-2"><p><i class="fas fa-circle fa-xs "  style="font-size:0.5rem; vertical-align:middle;"></i> ¡Qué lindo! <i class="h4"> *</i>procede a comprarlo por más inútil/irrelevante/ridículamente costoso que sea<i class="h4">* </i> </p></div>
+          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox" id="myCheck" onclick="myFunction('myCheck','text')"></div>
+        </div>  
+        <div class="row textocomun border-bottom py-2"> 
+          <div class="col-sm-11 col-md-10 mt-2 "><p><i class="fas fa-circle fa-xs"  style="font-size:0.5rem; vertical-align:baseline;"></i> ¿Viste ese Tik Tok en el que…?  </p></div>
+          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox"  id="myCheck2" onclick="myFunction('myCheck2','text')"> </div>
+        </div>  
+        <div class="row textocomun border-bottom py-2"> 
+          <div class="col-sm-11 col-md-10 mt-2"><p> <i class="fas fa-circle fa-xs "  style="font-size:0.5rem; vertical-align:baseline;"></i> No puede ser que nadie nunca limpie en esta casa, que yo sea… <i class="h4">*</i>se queja por media hora<i class="h4">*</i> </p></div>
+          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox"  id="myCheck3" onclick="myFunction('myCheck3','text')"> </div>
+        </div>  
+        <div class="row textocomun border-bottom py-2"> 
+          <div class="col-sm-11 col-md-10 mt-2"><p><i class="fas fa-circle fa-xs "  style="font-size:0.5rem; ;"></i>  ¿Me lo dejo largo o me lo corto?  Ya fue, me lo corto, ¿no? Ya fue, ¿no? ¿Me lo corto? </p></div>
+          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox"  id="myCheck4" onclick="myFunction('myCheck4','text')"> </div>
+        </div>  
+        <div class="row textocomun border-bottom py-2"> 
+          <div class="col-sm-11 col-md-10 mt-2"><p><i class="fas fa-circle fa-xs "  style="font-size:0.5rem; vertical-align: middle;"></i> Uf, tengo que terminar los libros pendientes.</p></div>
+          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox"  id="myCheck5" onclick="myFunction('myCheck5','text')"> </div>
+        </div>
+      </section>
+      <script>
+          function myFunction(id,pid) {
+          var checkBox = document.getElementById(id);
+          var text = document.getElementById(pid);
+
+          if (checkBox.checked == true){
+            text.style.display = "block";
+          } else {
+            text.style.display = "none";
+          }
+        }
+      </script>
+      <script>
+        var wow = new WOW(
+                 {
+                   boxClass:     'wow',      
+                   animateClass: 'animated', 
+                   offset:       0,         
+                   mobile:       true,      
+                   live:         true,       
+                   callback:     function(box) {
+                   },
+                   scrollContainer: null 
+                 }
+               );
+               wow.init();
+       </script>
+      <div id="text" class="mx-5 px-5 animate__animated animate__slideInDown mx-5 px-5 py-5 mt-0 desplegable" style="display:none">
+        ¡Tenemos cosas en común!  <br><br>
+        Dime cuál de estas opciones te gustaría más. <br><br>
+        
+        <a href=""  target="_blank" class="btn btn-custom" >Conocerme a mí </a><br><br>
+        <a href=""  target="_blank" class="btn btn-custom" >Conocer mis textos </a><br><br>
+        <a href=""  target="_blank" class="btn btn-custom" >Aprender a escribir mejor </a><br><br>
+      </div>
     </main>
     <footer class="pie-de-pagina">
       <p class="m-0 text-center py-3">
-        Maria Nieves. Escritora.
+        Luz Saltalamacchia, escritora.
       </p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">javascript"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script> <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>

@@ -15,6 +15,9 @@ $dionlight: #c1cad7;
         font-weight: normal;
         font-style: normal;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,200&display=swap');
+
 @font-face {
     font-family: 'Alesand-Regular';
     src:url('/webfonts_Alesand-Regular/Alesand-Regular.ttf.woff') format('woff'),
@@ -24,6 +27,7 @@ $dionlight: #c1cad7;
         font-weight: normal;
         font-style: normal;
 }
+//GENERALES
 .card-title{
   white-space:nowrap;
   overflow: visible;
@@ -56,6 +60,37 @@ $dionlight: #c1cad7;
     color: $secondary;
     background-color: $principal;
 }
+
+
+.titulo{
+    font-family: 'Maven-Pro-Black';
+    color: $secondary;
+}
+
+
+.textocomun{
+    font-family: 'Montserrat', sans-serif;
+    color: $secondary;
+    font-size: calc(0.5em + 1vw)
+}
+
+.textoinicio{
+    font-family: 'Montserrat', sans-serif;
+    color: $secondary;
+}
+
+// INFO LUZ
+.info-luz{
+    background-color: $principal;
+    color: $dionlight;
+}
+.desplegable{
+    background-color: $warning;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+}
+
+//ESCRITURA 
 .btn-dion{
     background-color: $dionlight;
     text-overflow: $diondark;
@@ -65,15 +100,6 @@ $dionlight: #c1cad7;
     color: $dionlight;
     cursor: pointer;
 }
-.info-luz{
-    background-color: $principal;
-    color: $dionlight;
-}
-.titulo{
-    font-family: 'Maven-Pro-Black';
-    color: $secondary;
-}
-
 .dion{
     background-color: $dion;
 }
@@ -81,12 +107,108 @@ $dionlight: #c1cad7;
     color: $diondark;
     font-family: 'Maven-Pro-Black';
 }
-.textocomun{
-    font-family: 'Alesand-Regular';
-    color: $secondary;
-}
 .textdion{
     color: $dionlight;
     font-family: 'Alesand-Regular';
 }
+.textovecina{
+    color: black;
+    font-family: 'Alesand-Regular';
 
+}
+.lavecina{
+    background-color: #FCC6BB;
+}
+.titulovecina{
+    color: black;
+    font-family: 'Maven-Pro-Black';
+}
+.btn-vecina{
+    background-color: #F7E2DE;
+    text-overflow: #F97C64;
+}
+.btn-vecina:hover{
+    background-color: black;
+    color: #F7E2DE;
+    cursor: pointer;
+}
+.cuentoobjetos{
+    background-color: #fdecda;
+}
+.titulocuentoobjetos{
+    color: #6F4025;
+    font-family: 'Maven-Pro-Black';
+}
+
+.textocuentoobjetos{
+    font-family: 'Alesand-Regular';
+    color: #6F4025;
+
+}
+.btn-cuentoobjetos:hover{
+    background-color:  #fdecda;
+    text-overflow:  #6F4025;
+    color: #6F4025;
+}
+.btn-cuentoobjetos{
+    background-color:  #6F4025;
+    text-overflow:   #fdecda;
+    color:  #fdecda;
+}
+.btn-milagros:hover{
+    background-color: #144b2c;
+    text-overflow:  #144b2c;
+    color: #bad4af;
+}
+.btn-milagros{
+    background-color:  #d5f2e0;
+    text-overflow:  #144b2c;
+    color:  #144b2c;
+}
+.milagros{
+    background-color: #bad4af;
+}
+.titulomilagros{
+    color:  #144b2c;
+    font-family: 'Maven-Pro-Black';
+}
+
+.textomilagros{
+    font-family: 'Alesand-Regular';
+    color:  #144b2c;
+
+}
+
+
+//checkbox
+input[type="checkbox"] {
+    appearance: none;
+    background-color: $principal;
+    margin: 0;
+    font: inherit;
+    color: $secondary;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid $secondary;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+  }
+
+  input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    background-color: $secondary;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+
+  }
+
+  input[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }
