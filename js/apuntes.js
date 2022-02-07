@@ -268,3 +268,72 @@ SPREAD OPERATOR
 
         ELIMINAR ELEMENTOS DUPLICADOS
         console.log([...new Set(numbers)]); esto hace que tengamos un array sin elementos duplicados (set hace que no hayan duplicados, pero sin el ... es un objeto y no un array)
+
+DOM 
+        es una API que se utiliza en js, no es parte de javascritp vienen integrado en el navegador
+
+        3 tipos mas usados 
+        element node 1 (culquier etiqueta html)
+        text node 3 (contenido de la etiqueta )
+        comment node 8 cualquier comentario de html 
+         cuando trabajamos con el dom las etiquetas van siempre en mayusculas, por ej H1 en vez de h1 comun
+
+         const title= document.getElementById('id')
+         console.log(title) ahi nos aparece el title con todas sus cosillas
+         si pongo por ejemplo title.textContent ='holaa' el texto ese va a pasar a ser  holaa por que le modifique el text content
+
+         const texto= document.querySelector('.paragraph') tiene que ir ese punto porque es un selector css no una clase, ahi selecciona el primero
+         si yo tengo un span dentro de paragraph puedo hacer ahora
+         const span = paragraph.querySelector("span")
+        o asi const span= document.getElemntById('title').querySelector("span")
+
+        const paragraphs= document.querySelectorAll('.paragraph') eso te devuelve un node list con todos los paragraphs, que NO ES UN ARRAY.
+        pero peeeero peroo tengo el spread operator sooo
+        const paragraphs= [...document.querySelectorAll('.paragraph')] eso si da un array pero no funciona al 100% en todos los navegadores asi que usamos
+        const paragraphs= Array.from(document.querySelectorAll('.paragraph')) y listo tenemos un array
+
+etiqueta js en html se recomienda poner al final antes del cierre del body 
+
+ATRIBUTOS Y CLASES
+        ATRIBUTOS
+            element.getAttribute('attribute') devuelve el atributo
+            element.SetAttribute("attribute", 'value') asigna valor nuevo al atributo, osea lo modifica
+        
+        CLASES
+            element.classList.add('class','class',...) 
+            element.classList.remove('class','class',...)
+            element.classList.toggle('class' [,force]) si tiene esa clase se la quita y sino se la pone, se usa mucho para menu desplegable 
+            element.classList.contains('class') true o false si tiene o no la clase
+            element.classList.replace('oldClass', newClass) reemplazza clase por otra 
+        ATRIBUTOS DIRECTOS 
+            id
+            value -> es lo que meten en los formiularios por ejemplo el nombre
+                si queremos saber el nombre no podemos poner name.lenght sino name.value.lenght
+            textContent devuelve todo con etiquetas internas y eso, no como textContent que solo devuelve el texto.
+EVENTOS 
+    CUALQUIER COSA QUE SUCEDA POR EJEMPLO QUE EL CONTENIDO SEA LEIDO, QUE EL USUARIO MUEVA EL MOUSE 
+    ya no se usa el onclick, en angular se puede usar (click)="funcion()"
+    que puedo hacer?
+        Element.addEventListener('event',callback) desde javascript
+    que eventos funcan? referencia de eventos de mdn te dice cuales sirven, cuales no y cuales maso
+
+OBJETO EVENTO 
+        vive siempre que haya un evento 
+        input.addEventListener('keyup', (e)=>{
+            console.log(e); //eso nos da toda la informacion del evento, la e es por poner un nombre pero puede ser cualquier nombre
+        });
+
+CREAR E INSERTAR TEXTO EN EL DOM
+        CREAR 
+            document.createElement('LI') siempre el document porque ahi lo queremos crear 
+            y ahi puedo hacer algo como itemList.textContent='Lunes'
+            siempre es hijo de alguien, por ej
+            daysList.appendChild(itemsList) ese daysList es el id de un ul en hmtl 
+            innerText= textContext pero textcontext es mejor el otro no es estadard ya 
+            si quiero poner algo con etiquetas hago algo asi 
+            title.innerHtml = 'holarda <span> holllii </span>'
+            cada vez que metemos algo el dom redibuja el arbol y es un re laburito entonces se creo esto:
+            const fragment = document.createDocumentFragment() par ameter todo el codigo de golpe 
+            ahi puedo hacer un for metiendo dias por ejemplo y en el fragment voy a;adiendolo con appendChild y recien cuando termino de agregar todo lo que quiero es introducir en ,por ejemplo, dayList.appendChild(fragment)
+
+            

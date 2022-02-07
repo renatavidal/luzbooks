@@ -6,6 +6,19 @@ $warning: #fbf6e3;
 $dion:#6b8096;
 $diondark: #191d23;
 $dionlight: #c1cad7;
+
+//TIPOGRAFIAS 
+
+@font-face {
+    font-family: 'Sehaty';
+    src:url('/webfonts_Sehaty.ttf.woff') format('woff'),
+        url('/webfonts_Sehaty.ttf.svg#Sehaty') format('svg'),
+        url('/webfonts_Sehaty.ttf.eot'),
+        url('/webfonts_Sehaty.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
 @font-face {
     font-family: 'Maven-Pro-Black';
     src:url('/webfonts_Maven-Pro-Black/Maven-Pro-Black.ttf.woff') format('woff'),
@@ -27,6 +40,7 @@ $dionlight: #c1cad7;
         font-weight: normal;
         font-style: normal;
 }
+
 //GENERALES
 .card-title{
   white-space:nowrap;
@@ -91,6 +105,8 @@ $dionlight: #c1cad7;
 }
 
 //ESCRITURA 
+
+//DION
 .btn-dion{
     background-color: $dionlight;
     text-overflow: $diondark;
@@ -111,6 +127,8 @@ $dionlight: #c1cad7;
     color: $dionlight;
     font-family: 'Alesand-Regular';
 }
+
+//MI VECINA
 .textovecina{
     color: black;
     font-family: 'Alesand-Regular';
@@ -135,6 +153,8 @@ $dionlight: #c1cad7;
 .cuentoobjetos{
     background-color: #fdecda;
 }
+
+//LOS OBJETOS NO CALLAN
 .titulocuentoobjetos{
     color: #6F4025;
     font-family: 'Maven-Pro-Black';
@@ -155,6 +175,17 @@ $dionlight: #c1cad7;
     text-overflow:   #fdecda;
     color:  #fdecda;
 }
+.btn-cuentoobjetos2{
+    background-color: #f3dbc3;
+    color: #6F4025;
+}
+.btn-cuentoobjetos2:hover{
+    background-color:   #6F4025;
+    text-overflow:  #6F4025;
+    color: #fdecda;
+}
+
+//MILAGROS
 .btn-milagros:hover{
     background-color: #144b2c;
     text-overflow:  #144b2c;
@@ -179,7 +210,11 @@ $dionlight: #c1cad7;
 
 }
 
-
+// INICIO MIS ESCRITURAS
+.escrituras{
+    font-family: 'Sehaty';
+    color: black;
+}
 //checkbox
 input[type="checkbox"] {
     appearance: none;

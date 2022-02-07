@@ -38,11 +38,6 @@
       <!--  menu logo redes-->
     </header>
     <main>
-      <script>
-        $(document).ready(function() {
-          $(".dropdown-toggle").dropdown();
-        });
-        </script>
        <nav class="navbar navbar-light navbar-custom navbar-expand-md fixed-top">
         <div class="container">
           <a href="index.html" class="navbar-brand">
@@ -87,59 +82,36 @@
       <section class="info-luz mx-5 px-5 mt-0 py-2">
         <div class="row py-2 textocomun border-bottom" > 
           <div class="col-sm-11 col-md-10 mt-2"><p><i class="fas fa-circle fa-xs "  style="font-size:0.5rem; vertical-align:middle;"></i> ¡Qué lindo! <i class="h4"> *</i>procede a comprarlo por más inútil/irrelevante/ridículamente costoso que sea<i class="h4">* </i> </p></div>
-          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox" id="myCheck" onclick="myFunction('myCheck','text')"></div>
+          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox" id="myCheck" ></div>
         </div>  
         <div class="row textocomun border-bottom py-2"> 
           <div class="col-sm-11 col-md-10 mt-2 "><p><i class="fas fa-circle fa-xs"  style="font-size:0.5rem; vertical-align:baseline;"></i> ¿Viste ese Tik Tok en el que…?  </p></div>
-          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox"  id="myCheck2" onclick="myFunction('myCheck2','text')"> </div>
+          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox"  id="myCheck2" > </div>
         </div>  
         <div class="row textocomun border-bottom py-2"> 
           <div class="col-sm-11 col-md-10 mt-2"><p> <i class="fas fa-circle fa-xs "  style="font-size:0.5rem; vertical-align:baseline;"></i> No puede ser que nadie nunca limpie en esta casa, que yo sea… <i class="h4">*</i>se queja por media hora<i class="h4">*</i> </p></div>
-          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox"  id="myCheck3" onclick="myFunction('myCheck3','text')"> </div>
+          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox"  id="myCheck3" > </div>
         </div>  
         <div class="row textocomun border-bottom py-2"> 
           <div class="col-sm-11 col-md-10 mt-2"><p><i class="fas fa-circle fa-xs "  style="font-size:0.5rem; ;"></i>  ¿Me lo dejo largo o me lo corto?  Ya fue, me lo corto, ¿no? Ya fue, ¿no? ¿Me lo corto? </p></div>
-          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox"  id="myCheck4" onclick="myFunction('myCheck4','text')"> </div>
+          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox"  id="myCheck4" > </div>
         </div>  
         <div class="row textocomun border-bottom py-2"> 
           <div class="col-sm-11 col-md-10 mt-2"><p><i class="fas fa-circle fa-xs "  style="font-size:0.5rem; vertical-align: middle;"></i> Uf, tengo que terminar los libros pendientes.</p></div>
-          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox"  id="myCheck5" onclick="myFunction('myCheck5','text')"> </div>
+          <div class="col-sm-1 col-md-2 mt-2 custom-check"> <input type="checkbox"  id="myCheck5"> </div>
         </div>
       </section>
       <script>
-          function myFunction(id,pid) {
-          var checkBox = document.getElementById(id);
-          var text = document.getElementById(pid);
-
-          if (checkBox.checked == true){
-            text.style.display = "block";
-          } else {
-            text.style.display = "none";
-          }
-        }
+        const button9= document.getElementById('myCheck');
+        console.log(button9.checked);
       </script>
-      <script>
-        var wow = new WOW(
-                 {
-                   boxClass:     'wow',      
-                   animateClass: 'animated', 
-                   offset:       0,         
-                   mobile:       true,      
-                   live:         true,       
-                   callback:     function(box) {
-                   },
-                   scrollContainer: null 
-                 }
-               );
-               wow.init();
-       </script>
       <div id="text" class="mx-5 px-5 animate__animated animate__slideInDown mx-5 px-5 py-5 mt-0 desplegable" style="display:none">
         ¡Tenemos cosas en común!  <br><br>
         Dime cuál de estas opciones te gustaría más. <br><br>
         
-        <a href=""  target="_blank" class="btn btn-custom" >Conocerme a mí </a><br><br>
-        <a href=""  target="_blank" class="btn btn-custom" >Conocer mis textos </a><br><br>
-        <a href=""  target="_blank" class="btn btn-custom" >Aprender a escribir mejor </a><br><br>
+        <a href="https://www.instagram.com/luzsalta/?hl=es"  target="_blank" class="btn btn-custom" >Conocerme a mí </a><br><br>
+        <a href="escritura.html"  target="_blank" class="btn btn-custom" >Conocer mis textos </a><br><br>
+        <a href="https://www.patreon.com/luzsalta"  target="_blank" class="btn btn-custom" >Aprender a escribir mejor </a><br><br>
       </div>
     </main>
     <footer class="pie-de-pagina">
@@ -147,6 +119,8 @@
         Luz Saltalamacchia, escritora.
       </p>
     </footer>
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">javascript"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script> <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
    </body>
 </html>
