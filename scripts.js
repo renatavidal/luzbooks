@@ -2,25 +2,25 @@
 
 button1= document.getElementById('myCheck');
 button1.addEventListener('click',()=>{
-    myFunction(button1)
+    desplegar(button1)
 });
 button2= document.getElementById('myCheck2')
 button2.addEventListener('click',()=>{
-    myFunction(button2)
+    desplegar(button2)
 });
 button3= document.getElementById('myCheck3');
 button3.addEventListener('click',()=>{
-    myFunction(button3)
+    desplegar(button3)
 });
 button4= document.getElementById('myCheck4');
 button4.addEventListener('click',()=>{
-    myFunction(button4)
+    desplegar(button4)
 });
 button5= document.getElementById('myCheck5');
 button5.addEventListener('click',()=>{
-    myFunction(button5)
+    desplegar(button5)
 });
-function myFunction(checkBox) {
+function desplegar(checkBox) {
     const text = document.getElementById('text');
     console.log(checkBox.checked)
     console.log('hola')

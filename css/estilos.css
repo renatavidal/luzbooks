@@ -68,6 +68,7 @@
 .textoinicio {
   font-family: "Montserrat", sans-serif;
   color: #948b88;
+  font-size: calc(0.5em + 1vw);
 }
 
 .info-luz {
