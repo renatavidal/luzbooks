@@ -42,11 +42,6 @@ $dionlight: #c1cad7;
 }
 
 //GENERALES
-.card-title{
-  white-space:nowrap;
-  overflow: visible;
-}
-
 .body{
     background-color: $info;
 }
@@ -158,13 +153,19 @@ $dionlight: #c1cad7;
 
 //LOS OBJETOS NO CALLAN
 .titulocuentoobjetos{
+    max-width: 85%;
     color: #6F4025;
     font-family: 'Maven-Pro-Black';
+    display: inline-block;
     white-space: nowrap;
     overflow: hidden;
-}
-.overflow-ellipsis{
     text-overflow: ellipsis;
+}
+.titulocuentoobjetos2{
+    color: #6F4025;
+    font-family: 'Maven-Pro-Black';
+    display: inline-block;
+    font-size: calc(1.5rem + 2vw);
 }
 .textocuentoobjetos{
     font-family: 'Alesand-Regular';
