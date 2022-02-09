@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,200&display=swap");
 @font-face {
   font-family: "Sehaty";
-  src: url("/webfonts_Sehaty.ttf.woff") format("woff"), url("/webfonts_Sehaty.ttf.svg#Sehaty") format("svg"), url("/webfonts_Sehaty.ttf.eot"), url("/webfonts_Sehaty.ttf.eot?#iefix") format("embedded-opentype");
+  src: url("/webfonts_Sehaty/Sehaty.ttf.woff") format("woff"), url("/webfonts_Sehaty/Sehaty.ttf.svg#Sehaty") format("svg"), url("/webfonts_Sehaty/Sehaty.ttf.eot"), url("/webfonts_Sehaty/Sehaty.ttf.eot?#iefix") format("embedded-opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -136,11 +136,6 @@
   background-color: #fdecda;
 }
 
-.img-size {
-  width: 100px;
-  height: 100px;
-}
-
 .titulocuentoobjetos {
   color: #6F4025;
   font-family: "Maven-Pro-Black";
@@ -209,7 +204,6 @@
 .escrituras {
   font-family: "Sehaty";
   color: black;
-  font-size: calc(0.5em + 1vw);
 }
 
 input[type=checkbox] {

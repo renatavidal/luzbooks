@@ -11,12 +11,12 @@ $dionlight: #c1cad7;
 
 @font-face {
     font-family: 'Sehaty';
-    src:url('/webfonts_Sehaty.ttf.woff') format('woff'),
-        url('/webfonts_Sehaty.ttf.svg#Sehaty') format('svg'),
-        url('/webfonts_Sehaty.ttf.eot'),
-        url('/webfonts_Sehaty.ttf.eot?#iefix') format('embedded-opentype'); 
-    font-weight: normal;
-    font-style: normal;
+    src:url('/webfonts_Sehaty/Sehaty.ttf.woff') format('woff'),
+        url('/webfonts_Sehaty/Sehaty.ttf.svg#Sehaty') format('svg'),
+        url('/webfonts_Sehaty/Sehaty.ttf.eot'),
+        url('/webfonts_Sehaty/Sehaty.ttf.eot?#iefix') format('embedded-opentype'); 
+        font-weight: normal;
+        font-style: normal;
 }
 
 @font-face {
@@ -156,11 +156,6 @@ $dionlight: #c1cad7;
 }
 
 
-.img-size{
-    width: 100px;
-    height: 100px;
-}
-
 //LOS OBJETOS NO CALLAN
 .titulocuentoobjetos{
     color: #6F4025;
@@ -225,7 +220,6 @@ $dionlight: #c1cad7;
 .escrituras{
     font-family: 'Sehaty';
     color: black;
-    font-size: calc(0.5em + 1vw)
 }
 //checkbox
 input[type="checkbox"] {
