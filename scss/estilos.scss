@@ -155,17 +155,27 @@ $dionlight: #c1cad7;
     background-color: #fdecda;
 }
 
+
+.img-size{
+    width: 100px;
+    height: 100px;
+}
+
 //LOS OBJETOS NO CALLAN
 .titulocuentoobjetos{
     color: #6F4025;
     font-family: 'Maven-Pro-Black';
+    white-space: nowrap;
+    overflow: hidden;
 }
-
+.overflow-ellipsis{
+    text-overflow: ellipsis;
+}
 .textocuentoobjetos{
     font-family: 'Alesand-Regular';
     color: #6F4025;
-
 }
+
 .btn-cuentoobjetos:hover{
     background-color:  #fdecda;
     text-overflow:  #6F4025;
@@ -215,6 +225,7 @@ $dionlight: #c1cad7;
 .escrituras{
     font-family: 'Sehaty';
     color: black;
+    font-size: calc(0.5em + 1vw)
 }
 //checkbox
 input[type="checkbox"] {

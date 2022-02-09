@@ -54,39 +54,39 @@
     </nav>
 
     <!-- ENVIAR COMENTARIO -->
-    <form action="enviar.html" method="POST" class="container border-rounded shadow  m-5 p-5" class="form-horizontal">
-      <fieldset>
+    <form action="mailto:renagaturrin@hotmail.com" method="POST" class="container border-rounded shadow  m-5 p-5 form-horizontal" enctype="text/plain">
+      <form id="form">
         <legend class=" py-3 titulo h1"> DATOS PERSONALES</legend>
           <div class="row form-group">
             <label class="textocomun col-lg-8  py-2"> nombre
               <div class="col-lg-4">
-                <input name="nombre"  class="form-control py-2"required>
+                <input name="nombre"  class="form-control py-2 nombre"required>
               </div>
             </label>
           </div>
         <div class="row form-group">
           <label class="textocomun col-lg-8 text-right"> email
             <div class="col-lg-4">
-              <input type="email" class="form-control py-2" name="email">
+              <input type="email" class="form-control py-2 email" name="email">
             </div>                
           </label>
         </div>
         <div class="row form-group">
           <label class="textocomun col-lg-8  py-2"> Instagram/ facebook
             <div class="col-lg-4">
-              <input type="tel" class="form-control" name="tel" required>
+              <input type="tel" class="form-control facebook" name="tel" required>
             </div>
           </label>
         </div>
         <div class="row form-group">
           <label class="textocomun col-lg-8  py-2"> Dejá tu mensaje
-            <div class="col-lg-4"> 
-              <textarea class="form-control textocomun" name="" id="" cols="30" rows="10">  </textarea>
+            <div class="col-lg-8"> 
+              <textarea class="form-control textocomun mensaje" name="" id="" cols="30" rows="10">  </textarea>
             </div>
           </label>
         </div>            
-        <input type="submit" class="btn btn-custom" >
-      </fieldset>
+        <input type="btn" value="Enviar" class="btn btn-custom" id="submit-btn" > 
+      </form>
     </form>
 
 

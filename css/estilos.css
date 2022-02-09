@@ -136,9 +136,20 @@
   background-color: #fdecda;
 }
 
+.img-size {
+  width: 100px;
+  height: 100px;
+}
+
 .titulocuentoobjetos {
   color: #6F4025;
   font-family: "Maven-Pro-Black";
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
 }
 
 .textocuentoobjetos {
@@ -198,6 +209,7 @@
 .escrituras {
   font-family: "Sehaty";
   color: black;
+  font-size: calc(0.5em + 1vw);
 }
 
 input[type=checkbox] {
