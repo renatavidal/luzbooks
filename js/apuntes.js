@@ -854,4 +854,97 @@ BARRA DE PROGRESO
         }) 
         para subir muchas fotos podes poner multiple en el input html 
 
+API INDEXEDEB 
+        almacenar datos en el navegador, es como el de local storage pero con mas capacidad 
+        tarda entonces hay que escuchar cuando cargo 
+        usa eventos DOM Para mostrar cuando los resultados estan disponibles 
+        es orientada a objetos, osea no SQL
+        primero creamos la base con open() 
+        para ver si existe hacemos onupgradeneeded(), y ahi la crea 
+        crear almacen de objetos con createObjectStore()
+        escuchamos evento de exito unsecces() o error onerror()
+
+        EJEMPLO CREAMOS LA BASE DE DATOS 
+            const indexedDB = window.indexedDB //window pq sino tienen el mismo nombre y da error 
+            if(indexedDB){
+                let db //aca voy a guardar la base de datos
+                const request= indexedDB.open('tasklist', 1)// tasklist es le nombre de la base de datos, el segundo parametro es la version, siempre numeros enteros. distintas versiones son distitnas bases de datos
+                request.onsuccess=()=>{
+                    db= request.result
+                    console.log('OPEN', db)
+                }
+                request.onupgradeneeded=()=>{
+                    db= request.result
+                    console.log('create', db)
+                    const objectStore= db.createObjectStore('tareas')
+
+                }
+                request.onerror=()=>{
+
+                    console.log('error', error)
+                }
+
+            }
+        AÑADIR DATOS
+        if(indexedDB){
+            let db 
+            const request= indexedDB.open('tasklist', 1)
+            request.onsuccess=()=>{
+                db= request.result
+                console.log('OPEN', db)
+            }
+            request.onupgradeneeded=()=>{
+                db= request.result
+                console.log('create', db)
+                const objectStore= db.createObjectStore('tareas', { //hay que crear una key, para eso hacemos asi 
+                    keyPath;'taskTitle' //osea genera la clave que ees el title de task
+                })
+
+            }
+            request.onerror=()=>{
+                console.log('error', error)
+            }
+            const addData = (data) =>{
+                const transaction = db.transaction(['tasks'], 'readwrite')
+                const objectStore= transaction.objectStore('tasks')
+                const request = objectStore.add(data)
+            }
+
+            form.addEventListener('submit', (e)=>{
+                e.preventDefault()
+                const data = {
+                    taskTitle: e.target.task.value,
+                    taskPriority: e.target.prieority.value
+                }
+                addData(data)
+            })
+    LEER DATOS 
+           
+    lo mismo que antes poero le agrego esto en request.onsucces porque tiene que ya haber abierto y toma su tiempo
+    request.onsuccess=()=>{
+        db= request.result
+        console.log('OPEN', db)
+        readData()
+    }
+    const readData = (data) => {
+        const transaction = db.transaction(['tasks'], 'readonly')
+        const objectStore= transaction.objectStore('tasks')
+        const request = objectStore.openCursor() //abre el cursor y permite leer la info
+        const fragment = document.createDocumentFragment() ///esto se pone arriba de onsucces porque el succes lo va a leer a cada vuelta que continua leyendo, osea cada vez que lea un registro
+        request.onsuccess = (e) =>{
+            
+            const cursor= e.target.result
+            if (cursor){
+                const taskTitle = document.createElement('P')
+                taskTitle.textContent= cursos.value.taskTitle
+                fragment.append(taskTitle)
+                cursor.continue()
+            } else{
+                console.log('no more dataa')
+                tasks.textContent='' esto es para que no vuelva a agregar todo cuando meto una nueva por el fragmento
+                tasks.append(fragment)
+            }
+        }
+    }
+
 
