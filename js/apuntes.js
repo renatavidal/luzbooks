@@ -852,5 +852,6 @@ BARRA DE PROGRESO
                 alert('ya cargo beibi')
             })
         }) 
-DRAG AND DROP + DRAPI
+        para subir muchas fotos podes poner multiple en el input html 
+
 
