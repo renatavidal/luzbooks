@@ -55,7 +55,16 @@ $dionlight: #c1cad7;
     color: $secondary;
     font-family: 'Alesand-Regular';
 }
-
+.text-overflow-center {
+    // display: flex;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    justify-content: center;
+    margin-left: -100%;
+    margin-right: -100%;
+    text-align: center;
+}
 .btn-custom{
     background-color: $secondary;
     color: $warning;

@@ -33,6 +33,18 @@
   font-family: "Alesand-Regular";
 }
 
+.text-overflow-center {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: -100%;
+  margin-right: -100%;
+  text-align: center;
+}
+
 .btn-custom {
   background-color: #948b88;
   color: #fbf6e3;
@@ -47,6 +59,11 @@
   font-family: "Alesand-Regular";
   color: #948b88;
   background-color: #dcd3cf;
+}
+
+.piedefoto {
+  font-family: "Alesand-Regular";
+  color: #948b88;
 }
 
 .titulo {
