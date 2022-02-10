@@ -712,3 +712,145 @@ FORMULARIOS
     
     LIBRERIA DE VALIDACIONES 
         <script src="validate.js"></script> y ahi te tira todas las cosillas para validar, todas las funciones hay que descargarla de github 
+
+APIS 
+    WEB STORAGE clave valor, en el dispositivo
+    sessionStorage()  se borra cuando el navegador se cierre 
+    localStorage() guarda info permanenetemente (o hasta que se borre manualmente)
+    getItem() recibe como parametro la clave de la que queremos obtener el valor
+    setItem() asignar una clave:valor 
+    clear() borra la info 
+    removeItem() y  le paso la key de lo que quiero borrar
+
+
+    ej 
+    cont form = document.getElementById('form')
+    const keys = document.getElementById('keys')
+
+    form.addEventListener('submit', (e)=>{
+        e.preventDEfault() //esto es para que no se recargue la pagina 
+        if (localStorage) // esto para saber si  funiona en el navegador 
+        sessionStorage.setItem('name','dorian')// ese dorian podria ser un objeto y hago JSON.stringtify(person)
+        // O ASI
+            sessionStorage.setItem(form.key.value, form.value.value) //siendo que el formulario pide key y value
+    })
+DRAG AND DROP 
+    API 
+    hay dos objetos el que arrastramos y la zon a en que lo dejamos 
+    objeto arrastrar: 
+        dragstart: se diaspara al comenzar a arrastrar 
+        drag: se dispara mientras arrastramos 
+        dragend: se dispara cuando soltamos el objeto 
+
+    zona de destino:
+        dragenter: se dispara cuando el objeto en tra en la zona de destino 
+        dragover: se dispara cuando el objeto se mueve sobre la zona de destino 
+        drop: se dispara cuando el objeto se suelta en la zona de destino 
+        dragleave: se dipara cuando el objeto sale de la zona del destino 
+        hacemos dropzone.addEventListener('dragover', (e)=>{ //eso de dropzone es el get element by id, el nombre que le di
+            e.preventDefault() //eso para que no aparezca el mouse ccomo prohibido cuando paso por la zona de dropeo
+            console.log('dragover')
+        })
+        dropzone.addEventListener('dropr', (e)=>{ //sin el anterior de dragover este de drop no funciona
+            e.preventDefault() //eso para que no aparezca el mouse ccomo prohibido cuando paso por la zona de dropeo
+            console.log('drop')
+        })
+
+        en HTML le ponemos el atributo draggable=true a los elementos que queremos mover 
+        en firefox necesita dataTransfer que le muestra toda la data de lo que estoy transfiriendo por ej:
+        e.dataTransfer.setData('text/plain', e.targer.id)
+        
+        necesitamos el dragover 
+        ejemplo:
+            const pendingTasks = document.getElementById('pending-tasks') //esto es el primer contenedor
+            const finishedTasks = document.getElementById('finished-tasks') //esto el segundo conetendor
+            //dataTransfer
+            //setData: Establece la información que queremos compartir
+            //getData: Establece la información que queremos obtener
+            pendingTasks.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', e.target.id)
+            })
+            
+            pendingTasks.addEventListener('drag', (e) => {
+                e.target.classList.add('active')
+            })
+            
+            pendingTasks.addEventListener('dragend', (e) => {
+                e.target.classList.remove('active')
+            })
+            
+            //OBLIGATORIO, SI NO, NO FUNCIONA
+            finishedTasks.addEventListener('dragover', (e) => {
+                e.preventDefault()
+            })
+            
+            finishedTasks.addEventListener('drop', (e) => {
+                e.preventDefault()
+                const element = document.getElementById(e.dataTransfer.getData('text'))
+                element.classList.remove('active')
+                finishedTasks.appendChild(pendingTasks.removeChild(element))
+            }) 
+
+API file 
+        leer archivos que introduzcamos a traves de un input o de la api anterior (drag and drop). son procesos asincronos
+        FileReader.readAsData()
+        FileReader.readAsText()
+        ejemplo:
+        const fileInput = document.getElementById('file')
+        const img = document.getElementById('img')
+        const images = document.getElementById('images')
+        const text = document.getElementById('text')
+        
+        // fileInput.addEventListener('change', (e) => {
+        //     const file = e.target.files[0]
+        //     const fileReader = new FileReader()
+        //     fileReader.readAsText(file)
+        //     fileReader.addEventListener('load', (e) => {
+        //         text.textContent = e.target.result
+        //     })
+        // })
+        
+        //Carga simple de imagen
+        // fileInput.addEventListener('change', (e) => {
+        //     const file = e.target.files[0]
+        //     const fileReader = new FileReader()
+        //     fileReader.readAsDataURL(file)
+        //     fileReader.addEventListener('load', (e) => {
+        //         img.setAttribute('src', e.target.result)
+        //     })
+        // })
+        
+        //Carga múltiple de imágenes
+        fileInput.addEventListener('change', (e) => {
+            const files = e.target.files
+            const fragment = document.createDocumentFragment()
+            for (const file of files) {
+                const fileReader = new FileReader()
+                const img = document.createElement('IMG')
+                fileReader.readAsDataURL(file)
+                fileReader.addEventListener('load', (e) => {
+                    img.setAttribute('src', e.target.result)
+                })
+                fragment.appendChild(img)
+            }
+            images.appendChild(fragment)
+        }) 
+
+BARRA DE PROGRESO 
+        controlo el widht del css de esa barra de progreso 
+        el evento es progress
+        const progress = document.getElementById('progress');
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0]
+            const fileReader= new FileReader()
+            fileReader.ReadDataAsURL(file)
+            fileReader.addEventListener('progress', (e)=>{
+                //loaded nos dice cuanto lleva y total el toral del archivo
+                progress.style.widht =Number.parseInt(e.loaded*100 / e.total) + '%'
+            })
+            fileReader.addEventListener('loadend', ()=>{ //esto es cunado ya termina
+                alert('ya cargo beibi')
+            })
+        }) 
+DRAG AND DROP + DRAPI
+
