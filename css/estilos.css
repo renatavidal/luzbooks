@@ -57,13 +57,13 @@
 .textocomun {
   font-family: "Montserrat", sans-serif;
   color: #948b88;
-  font-size: calc(0.5em + 1vw);
+  font-size: calc(1em + 0.5vw);
 }
 
 .textoinicio {
   font-family: "Montserrat", sans-serif;
   color: #948b88;
-  font-size: calc(0.5em + 1vw);
+  font-size: calc(1em + 0.5vw);
 }
 
 .info-luz {
