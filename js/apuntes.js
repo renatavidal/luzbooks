@@ -947,4 +947,379 @@ API INDEXEDEB
         }
     }
 
+ACTUALIZAR DATOS 
+    data-action="update" eso lo pongo en el html en el coso que quiera cambiar, por ejemplo en el boton de submit 
+    es igual que la funcion de getDAta pero en vez de add en la tercera linea pongo put(data) osea si existe la tarea la modifico y sino la agrego 
+
+
+        const indexedDB = window.indexedDB
+        const form = document.getElementById('form')
+        const tasks = document.getElementById('tasks')
+
+        if (indexedDB && form) {
+            let db
+            const request = indexedDB.open('tasksList', 1)
+
+            request.onsuccess = () => {
+                db = request.result
+                console.log('OPEN', db)
+                readData()
+            }
+
+            request.onupgradeneeded = (e) => {
+                db = e.target.result
+                console.log('Create', db)
+                const objectStore = db.createObjectStore('tasks', {
+                    keyPath: 'taskTitle'
+                })
+            }
+
+            request.onerror = (error) => {
+                console.log('Error', error)
+            }
+
+            const addData = (data) => {
+                const transaction = db.transaction(['tasks'], 'readwrite')
+                const objectStore = transaction.objectStore('tasks')
+                const request = objectStore.add(data)
+                readData()
+            }
+
+            const getData = (key) => {
+                const transaction = db.transaction(['tasks'], 'readwrite')
+                const objectStore = transaction.objectStore('tasks')
+                const request = objectStore.get(key)
+
+                request.onsuccess = (e) => {
+                    form.task.value = request.result.taskTitle
+                    form.priority.value = request.result.taskPriority
+                    form.button.dataset.action = 'update'
+                    form.button.textContent = 'Update Task'
+                }
+            }
+
+            const updateData = (data) => {
+                const transaction = db.transaction(['tasks'], 'readwrite')
+                const objectStore = transaction.objectStore('tasks')
+                const request = objectStore.put(data)
+                request.onsuccess = () => {
+                    form.button.dataset.action = 'add'
+                    form.button.textContent = 'Add Task'
+                    readData()
+                }
+            }
+
+            const readData = () => {
+                const transaction = db.transaction(['tasks'], 'readonly')
+                const objectStore = transaction.objectStore('tasks')
+                const request = objectStore.openCursor()
+                const fragment = document.createDocumentFragment()
+
+                request.onsuccess = (e) => {
+                    const cursor = e.target.result
+                    if (cursor) {
+
+                        const taskTitle = document.createElement('P')
+                        taskTitle.textContent = cursor.value.taskTitle
+                        fragment.appendChild(taskTitle)
+
+                        const taskPriority = document.createElement('P')
+                        taskPriority.textContent = cursor.value.taskPriority
+                        fragment.appendChild(taskPriority)
+
+                        const taskUpdate = document.createElement('BUTTON')
+                        taskUpdate.dataset.type = 'update'
+                        taskUpdate.dataset.key = cursor.key
+                        taskUpdate.textContent = 'Update'
+                        fragment.appendChild(taskUpdate)
+
+                        const taskDelete = document.createElement('BUTTON')
+                        taskDelete.textContent = 'Delete'
+                        fragment.appendChild(taskDelete)
+
+                        cursor.continue()
+                    } else {
+                        tasks.textContent = ''
+                        tasks.appendChild(fragment)
+                    }
+                }
+            }
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault()
+                const data = {
+                    taskTitle: e.target.task.value,
+                    taskPriority: e.target.priority.value
+                }
+
+
+                if (e.target.button.dataset.action == 'add') {
+                    addData(data)
+                } else if (e.target.button.dataset.action == 'update') {
+                    updateData(data)
+                }
+
+                form.reset()
+            })
+
+            tasks.addEventListener('click', (e) => {
+                if (e.target.dataset.type == 'update') {
+                    getData(e.target.dataset.key)
+                }
+            })
+        } 
+    BORRAR DATOS 
+
+        const taskDelete= document.createElement('BUTTON')
+        taskDelete.textContent= 'Delete'
+        taskDelete.dataset.type = 'delete'
+        taskDelete.dataset.key = cursor.key
+        fragment.append(taskDelete)
+
+        cursor.continue()
+
+        tasks.addEventListener('click', (e) => {
+            if (e.target.dataset.type == 'update') {
+                getData(e.target.dataset.key)
+            }
+            else if (e.target.dataset.type == 'delete') {
+                deleteData(e.target.dataset.key)
+        })
+
+        const deleteData = (data) => {
+            const transaction = db.transaction(['tasks'], 'readwrite')
+            const objectStore = transaction.objectStore('tasks')
+            const request = objectStore.delete(key) //esto solo cambia con update
+            request.onsuccess = () => {
+                readData()
+            }
+        }
+
+API VISIBILITY CHANGE 
+        para que cuando cambio de pesta;a ej video se deje de reproducir 
+        const video = document.getElementById('video')
+        addEventListener('visibilitychange', (e)=>{
+            if(document.visibilityState == 'visible'){
+                video.play()
+            } else if (document.visibilityState=='PAUSE'){
+                video.pause()
+            }
+        })
+         o mas facil asi 
+         addEventListener('visibilitychange', ()=> document.visibilityState == 'visible'? video.play() : video.pause())
+
+API ONLINE/ OFFLINE 
+        addEventListener('online', (e)=>{
+
+        })
+        addEventListener('offline', (e)=>{
+            
+        })
+
+        const setAlert= (status)=>{
+            alert.classList.remove('alert--online')
+            alert.classList.remove('alert--offline')
+
+            status ===0?
+            setTimeout(()=>{
+                alert.textContent= 'offline'
+                alert.classList.add('alert--offline')
+            },100) : //ese 100 es por un tema de animaciones
+            setTimeout(()=>{
+                alert.textContent= 'online'
+                alert.classList.add('alert--online')
+            },100) 
+        }
+
+API INTERSECTION OBSERVER - lazy load
+        no cargar elementos que no vemos para ahorrar tiempo 
+        const boxes = document.querySelectorAll('.box')
+
+        const callback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log(entry.target.id, 'is intersecting')
+                }
+            })
+        }
+
+        const options = {
+            // root:
+            // rootMargin: '-200px' //esto dice que pasados los 200px de ese objeto lo carga
+            threshold: 0.25 //esto dice que cuando intersecto el 25% del elemento lo va a cargar
+        }
+
+        const observer = new IntersectionObserver(callback, options) //cuando se esta por ver llama al callback, options es opcional
+        boxes.forEach(element => observer.observe(element)) 
+
+        LAZY LOAD
+            const images = document.getElementById('images')
+            const getImages = () => {
+                axios('https://picsum.photos/v2/list?page=3&limit=5')
+                    .then(res => {
+                        const fragment = document.createDocumentFragment()
+                        res.data.forEach(element => {
+                            const newImage = document.createElement('IMG')
+                            newImage.src = element.download_url
+                            fragment.appendChild(newImage)
+                        })
+                        images.appendChild(fragment) //HSTA ACA ES TEMA VIEJO
+                        setObserver()
+                    })
+            }
+
+            const callback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        getImages() //aca hace que aparezcan todas las fotos denuevo al final, haciendo un bucle infinito 
+                    } else {
+                        //quitar animación
+                    }
+                })
+            }
+
+            const setObserver = () => {
+                const options = {
+                    threshold: 0.5
+                }
+
+                const observer = new IntersectionObserver(callback, options)
+                observer.observe(images.lastElementChild)
+            }
+
+            getImages() 
+
+API GEOLOCATION 
+            tambien esta el metodo watch position pero funciona casi igual a getPosition
+
+        const button = document.getElementById('button')
+
+        button.addEventListener('click', ()=>{
+            const geolocation = navigator.geolocation 
+            geolocation.getCurrentPosition(GetPosition, error, options)
+        })
+        const options = {
+            enableHIghAccuracy: true,
+            timeout:5000,
+            maximunAge:0 //tiempo que le permitiomos tener algo en cache, con ese 0 no tirara info cacheada sino en tiempo real
+        }
+        const getPosition = (position) => {
+            console.log(position)
+            console.log(object)
+
+        }
+
+        const error= (error) => console.log(error)
+        
+API MATCH MEDIA 
+        esto no sirve apra reemplazar las mediaquerys de css 
+        mql = window.matchMedia(mediaQueryString)
+        mql viene de media query list, que es el objeto que se crea con el método matchMedia()
+        mediaQueryString es cualquier media query válida en CSS
+        */
+
+        const title = document.getElementById('title')
+
+        const mql = matchMedia('(min-width:400px) and (orientation: landscape)')
+
+        const applyMatchMedia = mql => {
+        mql.matches ?
+            //NO HACER ESTO NUNCA :)
+            //NO HACER ESTO NUNCA
+            document.body.style.backgroundColor = 'red'
+            //ESTO SI
+            // title.classList.add('clase que sea')
+            :
+            //NO HACER ESTO NUNCA :)
+            //NO HACER ESTO NUNCA
+            document.body.style.backgroundColor = 'royalblue'
+        }
+
+        mql = matchMedia('(min-width:800px)')
+
+        addEventListener('resize', (e) => {
+        // if (innerWidth == '800') console.log(innerWidth)
+        applyMatchMedia(mql)
+        })
+        addEventListener('resize', () => applyMatchMedia(mql))
+        addEventListener('DOMContentLoaded', () => applyMatchMedia(mql)) //ESTO PARA ASEGURARTE DE QUE FUNCIONE SIEMPRE Y NO HAYA ERRORES
+
+        applyMatchMedia(mql) 
+
+
+DESTRUCTURING
+        extraer datos de arrays y objetos
+        estos dos formas 
+        const{name: nombre,age: edad,email} = person 
+        const{name,age,email} = person 
+
+        con arrays
+        const [primeraPosicion]=numbers
+        o por ejemplo si quiero la tercera hago asi
+        const [a,b,TerceraPosicion]=numbers //los nombres son a eleccion opio
+        console.log(terceraPosicion)
+
+            //esto imprime el nombre de person
+        const print= ({name})=>{
+            console.log(name)
+        }
+        printPerson(person)
+
+        // destructuracion en las peticiones a traves de axios 
+        //obvio importar libreria de axios en el html
+        const getUsers= async () => {
+            const {data:users} = await axios.get('url')
+            console.log(users)
+        }
+        getUsers()
+
+DEBUGGING 
+        en el navegador pongo depurador que esta al lado de consola, es con F12
+          en la parte de expresiones vigiladas (en chrome es watch) podes poner cosas como type of variable 
+          y nos dice de que tipo es y asi tiene un monton de funciones
+
+TRANSPILACION DE CODIGO CON BABEL 
+        convertir en codigo valido para subir a un servidor 
+        
+        1. instalamos node 
+        2. abrimos terminal nueva 
+        3. inicio node en el proyecto (npm init -y)
+        4. pongo esto en la hoja de codigo
+        //npm install @babel/cli @babel/core @babel/polyfill @babel/present-env @babel/register gulp gulp-babel gulp-concat gulp-plumber gulp-uglify --save-dev
+        5. creo dos archivos en la raiz del proyecto, el 1 gulpfile.babel.js 
+        y le pongo 
+        import gulp from "gulp"
+        import babel from "gulp-babel"
+        import concat from "gulp-concat"
+        import uglify from "gulp-uglify"
+        import plumber from "gulp-plumber"
+
+        gulp.task("babel", ()=>{
+            return gulp
+                .src("dev/js/*.js") //ojo que es ruta de cad compu, hay que ver el nombre de mis carpetas
+                .pipe(plumber())
+                .pipe(
+                    babel({
+                        presets: ["@babel/preset-env"],
+                    })
+                )
+                .pipe(concat("scripts-min.js"))
+                .pipe(uglify())
+                .pipe(gulp.dest("public/js"))
+        })
+        gulp.task("default", ()=>{
+            gulp.watch("dev/js/*.js", gulp.series("babel"))
+        })
+
+    el otro archivo se tiene que llamar .babelrc 
+    y adentro tiene 
+        {
+            "presets":[
+                "@babel/presset-env"
+            ] 
+        }
+
+    6. en la terminal pongo npm install -g gulp //si ya lo tengo no hace falta este paso
+    7. lo que ponga en scripts.js se va a cambiar a un coso ya hecho para subir 
+    8. tambien necesito el package.json de archivo si lo quiero para otro proyecto ademas de los dos creados en el paso 5. y pongo npm install en el proyecto nuevo.
 
